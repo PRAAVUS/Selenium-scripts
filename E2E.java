@@ -50,7 +50,9 @@ public class E2E {
 		s.selectByValue("3");
 
 		//select currency USD
-		driver.findElement(By.id("ctl00_mainContent_DropDownListCurrency")).click();
+		Select s2=new Select(driver.findElement(By.id("ctl00_mainContent_DropDownListCurrency")));
+		s2.selectByVisibleText("USD");
+		
 		
 		}
 
