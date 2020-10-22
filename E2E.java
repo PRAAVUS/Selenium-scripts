@@ -26,8 +26,6 @@ public class E2E {
 		driver.findElement(By.cssSelector("a[value='MAA']")).click();
 		driver.findElement(By.xpath("(//a[@value='CCU'])[2]")).click();
 		
-		//select one way trip
-		//driver.findElement(By.id("ctl00_mainContent_rbtnl_Trip_0")).click();
 		
 		//Select current date in calendar and check if the Return date is disabled
 		driver.findElement(By.cssSelector(".ui-state-default.ui-state-highlight.ui-state-active")).click();
@@ -42,8 +40,6 @@ public class E2E {
 		Assert.assertTrue(false);	
 		}
 		
-		
-		
 		//select 3 adults
 		driver.findElement(By.id("divpaxinfo")).click();
 		Select s=new Select(driver.findElement(By.id("ctl00_mainContent_ddl_Adult")));
@@ -52,17 +48,7 @@ public class E2E {
 		//select currency USD
 		Select s2=new Select(driver.findElement(By.id("ctl00_mainContent_DropDownListCurrency")));
 		s2.selectByVisibleText("USD");
-		
-		
 		}
-
-		
-		
-		
-		
-		
-		
-
 	}
 
 
