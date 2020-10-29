@@ -1,9 +1,14 @@
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
 
 
@@ -12,11 +17,26 @@ public class FunctionalTesting {
 	public static void main(String[] args) throws InterruptedException {
 		System.setProperty("webdriver.chrome.driver","C:\\Users\\kalfj\\eclipse\\java-2020-09\\eclipse\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
-		
+		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		String[] itemsNeeded = { "Cucumber", "Brocolli", "Beetroot" };
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/");
-		Thread.sleep(1000);
+		//Thread.sleep(1000);
 		addItems(driver,itemsNeeded);	
+		WebDriverWait w=new WebDriverWait(driver,10);
+		
+		driver.findElement(By.cssSelector("img[alt=\"Cart\"]")).click();
+		driver.findElement(By.xpath("//button[contains(text(),'PROCEED TO CHECKOUT')]")).click();
+		w.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("input[class='promoCode']")));
+		driver.findElement(By.cssSelector("input[class='promoCode']")).sendKeys("rahulshettyacademy");
+		driver.findElement(By.cssSelector("button.promoBtn")).click();
+		
+		
+		w.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("span.promoInfo")));
+		System.out.println(driver.findElement(By.cssSelector("span.promoInfo")).getText());
+		Assert.assertEquals((driver.findElement(By.cssSelector("span.promoInfo")).getText()), "Code applied ..!");
+		
+		
+		
 		
 	}
 	public static void addItems(WebDriver driver,String[] itemsNeeded)
