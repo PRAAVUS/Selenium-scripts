@@ -16,11 +16,7 @@ public class FunctionalTesting {
 		String[] itemsNeeded = { "Cucumber", "Brocolli", "Beetroot" };
 		driver.get("https://rahulshettyacademy.com/seleniumPractise/");
 		Thread.sleep(1000);
-		addItems(driver,itemsNeeded);
-		
-		
-		
-		
+		addItems(driver,itemsNeeded);	
 		
 	}
 	public static void addItems(WebDriver driver,String[] itemsNeeded)
@@ -28,15 +24,12 @@ public class FunctionalTesting {
 		int j = 0;
 		List<WebElement> products = driver.findElements(By.cssSelector("h4.product-name"));
 		//	addItems(driver, itemsNeeded);	
-		
-//		addItems(WebDriver driver, String[] itemsNeeded)
+		//	addItems(WebDriver driver, String[] itemsNeeded)
 		
 			for (int i = 0; i < products.size(); i++)
 			{
-
 					//Brocolli - 1 Kg
 					//Brocolli,    1 kg
-
 				String[] name = products.get(i).getText().split("-");
 				String formattedName = name[0].trim();
 
