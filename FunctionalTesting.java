@@ -1,7 +1,6 @@
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,8 +8,6 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
-
-
 
 public class FunctionalTesting {
 
@@ -30,14 +27,10 @@ public class FunctionalTesting {
 		driver.findElement(By.cssSelector("input[class='promoCode']")).sendKeys("rahulshettyacademy");
 		driver.findElement(By.cssSelector("button.promoBtn")).click();
 		
-		
 		w.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("span.promoInfo")));
 		System.out.println(driver.findElement(By.cssSelector("span.promoInfo")).getText());
 		Assert.assertEquals((driver.findElement(By.cssSelector("span.promoInfo")).getText()), "Code applied ..!");
-		
-		
-		
-		
+	
 	}
 	public static void addItems(WebDriver driver,String[] itemsNeeded)
 	{
@@ -54,9 +47,7 @@ public class FunctionalTesting {
 				String formattedName = name[0].trim();
 
 					//format it to get actual vegetable name
-
 					//convert array into array list for easy search
-
 					//  check whether name you extracted is present in arrayList or not-
 
 				List itemsNeededList = Arrays.asList(itemsNeeded);
