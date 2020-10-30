@@ -13,7 +13,4 @@ public class Assignment3 {
 		driver.findElement(By.xpath("//a[contains(text(),'Click to load get data via Ajax!')]")).click();
 		WebDriverWait w=new WebDriverWait(driver,5);
 		System.out.println(w.until(ExpectedConditions.visibilityOfElementLocated(By.id("results"))).getText());
-
-	}
-
-}
+	}}
