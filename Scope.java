@@ -1,3 +1,5 @@
+import java.util.Iterator;
+import java.util.Set;
 import java.util.concurrent.TimeUnit;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
@@ -7,10 +9,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 public class Scope {
 
-	public static void main(String[] args) {
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\kalfj\\eclipse\\java-2020-09\\eclipse\\chromedriver.exe");
+	public static void main(String[] args) throws InterruptedException {
+		System.setProperty("webdriver.chrome.driver","C:\\Program Files\\Java\\Selenium\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
-		driver.manage().timeouts().implicitlyWait(3, TimeUnit.SECONDS);
+		driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 		driver.get("https://www.rahulshettyacademy.com/AutomationPractice/");
 		
 		//Find the number of links on page
@@ -24,11 +26,24 @@ public class Scope {
 		WebElement discountcoupon= footerdriver.findElement(By.xpath("//tbody/tr[1]/td[1]/ul[1]"));
 		System.out.println("Number of Links in discountcoupons: "+discountcoupon.findElements(By.tagName("a")).size());
 		
-		//Open all links in the footer section
+		//Open all links in the footer section, switch to them and get their title
 		for(int i=0;i<footerdriver.findElements(By.tagName("a")).size();i++)
 		{
 			String clickonlinktab= Keys.chord(Keys.CONTROL,Keys.ENTER);
+			
+			
 			footerdriver.findElements(By.tagName("a")).get(i).sendKeys(clickonlinktab);
 		}
-	}}
+			Set<String> abc=driver.getWindowHandles();
+			Iterator<String> it=abc.iterator();
+		
+			while(it.hasNext())
+			{
+				driver.switchTo().window(it.next());
+				System.out.println(driver.getTitle());
+			}
+			
+	}}		
+		
+	
 

@@ -9,13 +9,12 @@ import org.testng.Assert;
 public class Checkboxes_E2ETESTING {
 
 	public static void main(String[] args) throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver",
-				"C:\\Users\\kalfj\\eclipse\\java-2020-09\\eclipse\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","C:\\Program Files\\Java\\Selenium\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 
 		// Go to Website & Print Title +Assertion
 		driver.get("https://www.spicejet.com/");
-		Thread.sleep(500);
+		Thread.sleep(1500);
 		driver.get("https://www.spicejet.com/");
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		Assert.assertFalse(driver.findElement(By.id("ctl00_mainContent_chk_friendsandfamily")).isSelected());

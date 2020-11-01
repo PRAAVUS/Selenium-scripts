@@ -12,7 +12,7 @@ import org.testng.Assert;
 public class FunctionalTesting {
 
 	public static void main(String[] args) throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver","C:\\Users\\kalfj\\eclipse\\java-2020-09\\eclipse\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","C:\\Program Files\\Java\\Selenium\\chromedriver.exe");
 		WebDriver driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
 		String[] itemsNeeded = { "Cucumber", "Brocolli", "Beetroot" };

@@ -5,7 +5,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class RediffE2E {
 
 	public static void main(String[] args) throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\kalfj\\eclipse\\java-2020-09\\eclipse\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","C:\\Program Files\\Java\\Selenium\\chromedriver.exe");
 		WebDriver driver=new ChromeDriver();
 		driver.get("https://rediff.com");
 		driver.findElement(By.xpath("//*[@id=\'signin_info\']/a[1]")).click();

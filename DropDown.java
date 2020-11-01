@@ -8,7 +8,7 @@ import org.openqa.selenium.support.ui.Select;
 public class DropDown {
 
 	public static void main(String[] args) throws InterruptedException {
-		System.setProperty("webdriver.chrome.driver", "C:\\Users\\kalfj\\eclipse\\java-2020-09\\eclipse\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","C:\\Program Files\\Java\\Selenium\\chromedriver.exe");
 		WebDriver driver=new ChromeDriver();
 		driver.get("https://www.spicejet.com/");
 		
